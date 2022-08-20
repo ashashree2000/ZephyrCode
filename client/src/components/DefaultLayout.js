@@ -11,10 +11,12 @@ import {
   LogoutOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Typography } from "antd";
 import React, { useState } from "react";
+import Filter from "./Filter";
 
 const { Header, Sider, Content } = Layout;
+const { Text } = Typography;
 
 const DefaultLayout = (props) => {
   const [collapsed, setCollapsed] = useState(false);
@@ -22,6 +24,8 @@ const DefaultLayout = (props) => {
     localStorage.removeItem("user");
     window.location.reload();
   }
+
+  const user = JSON.parse(localStorage.getItem("user"));
 
   return (
     <Layout>
@@ -57,7 +61,7 @@ const DefaultLayout = (props) => {
       </Sider>
       <Layout className="site-layout">
         <Header
-          className="site-layout-background"
+          className="site-layout-background bs1"
           style={{
             padding: 0,
             position: "sticky",
@@ -66,13 +70,25 @@ const DefaultLayout = (props) => {
             zIndex: 9999,
           }}
         >
-          {React.createElement(
-            collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-            {
-              className: "trigger",
-              onClick: () => setCollapsed(!collapsed),
-            }
-          )}
+          <div className="flex justify-content-between">
+            <div>
+              {React.createElement(
+                collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+                {
+                  className: "trigger",
+                  onClick: () => setCollapsed(!collapsed),
+                }
+              )}
+            </div>
+            <div>
+              <Filter />
+            </div>
+            <div>
+              <Text style={{ marginRight: "10px" }} code>
+                {user.username}
+              </Text>
+            </div>
+          </div>
         </Header>
         <Content
           className="site-layout-background"

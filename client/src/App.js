@@ -16,6 +16,7 @@ import PostedJobs from "./pages/PostedJobs";
 import EditJob from "./pages/EditJob";
 import AppliedJobs from "./pages/AppliedJobs";
 import { getAllUsers } from "./redux/actions/userActions";
+import UserInfo from "./pages/UserInfo";
 
 function App() {
   const { loader } = useSelector((state) => state.loaderReducer);
@@ -39,7 +40,8 @@ function App() {
         <ProtectedRoute path="/postjob" exact component={PostJob} />
         <ProtectedRoute path="/profile" exact component={Profile} />
         <ProtectedRoute path="/posted" exact component={PostedJobs} />
-        <Route path="/appliedjobs" exact component={AppliedJobs} />
+        <ProtectedRoute path="/appliedjobs" exact component={AppliedJobs} />
+        <ProtectedRoute path="/users/:id" exact component={UserInfo} />
 
         {/* Authentication routes */}
         <Route path="/login" exact component={Login} />

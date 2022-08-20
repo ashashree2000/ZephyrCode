@@ -12,7 +12,7 @@ const Login = () => {
   return (
     <div className="login">
       <Row justify="center">
-        <Col lg={10} sm={24} className="bs p-5">
+        <Col lg={10} sm={24} className="bs p-5 login-form">
           <h3>Login</h3>
           <hr />
           <Form layout="vertical" onFinish={login}>

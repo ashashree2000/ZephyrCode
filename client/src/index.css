@@ -81,6 +81,9 @@ p{
 .bs{
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
+.bs1{
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 48px 100px 0px;
+}
 
 .job-div{
   border-radius: 4px !important;
@@ -92,4 +95,14 @@ p{
 
 .ant-message{
   z-index: 9999 !important;
+}
+
+.login{
+  /* background-color: #4185fd; */
+  height: 100vh;
+}
+
+.login-form{
+  background-color: #fff !important;
+  border-radius: 4px;
 }
