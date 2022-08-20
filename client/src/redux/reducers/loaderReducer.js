@@ -1,8 +1,8 @@
-const initialSate = {
+const initialState = {
   loader: false,
 };
 
-export const loaderReducer = (state = initialSate, action) => {
+export const loaderReducer = (state = initialState, action) => {
   switch (action.type) {
     case "LOADING": {
       return {

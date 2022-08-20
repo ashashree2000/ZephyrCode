@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useEffect } from "react";
-import { useState, CSSProperties } from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+// import { useState, CSSProperties } from "react";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import "antd/dist/antd.min.css";
 import Home from "./pages/Home";
 import JobInfo from "./pages/JobInfo";
@@ -15,12 +15,14 @@ import PostJob from "./pages/PostJob";
 import PostedJobs from "./pages/PostedJobs";
 import EditJob from "./pages/EditJob";
 import AppliedJobs from "./pages/AppliedJobs";
+import { getAllUsers } from "./redux/actions/userActions";
 
 function App() {
   const { loader } = useSelector((state) => state.loaderReducer);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllJobs());
+    dispatch(getAllUsers());
   }, []);
   return (
     <div className="App">
