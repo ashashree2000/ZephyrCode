@@ -2,6 +2,7 @@ import { Tabs, Row, Col, Input, Form } from "antd";
 import React from "react";
 import DefaultLayout from "../components/DefaultLayout";
 const { TabPane } = Tabs;
+const { TextArea } = Input;
 const Profile = () => {
   return (
     <div>
@@ -62,6 +63,28 @@ const Profile = () => {
                     name="portfolio"
                   >
                     <Input />
+                  </Form.Item>
+                </Col>
+
+                <Col lg={24} sm={24}>
+                  <Form.Item
+                    label="Address"
+                    required
+                    rules={[{ required: true }]}
+                    name="address"
+                  >
+                    <TextArea rows={5} />
+                  </Form.Item>
+                </Col>
+
+                <Col lg={24} sm={24}>
+                  <Form.Item
+                    label="About"
+                    required
+                    rules={[{ required: true }]}
+                    name="about"
+                  >
+                    <TextArea rows={5} />
                   </Form.Item>
                 </Col>
               </Row>
