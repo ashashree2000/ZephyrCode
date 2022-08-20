@@ -1,10 +1,16 @@
 import {
-  MenuFoldOutlined,
   MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
+  MenuFoldOutlined,
+  PlusSquareOutlined,
   VideoCameraOutlined,
+  UploadOutlined,
+  HomeOutlined,
+  UserOutlined,
+  PlusOutlined,
+  CheckOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import React, { useState } from "react";
 
@@ -20,32 +26,37 @@ const DefaultLayout = (props) => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["1"]}
-          items={[
-            {
-              key: "1",
-              icon: <UserOutlined />,
-              label: "nav 1",
-            },
-            {
-              key: "2",
-              icon: <VideoCameraOutlined />,
-              label: "nav 2",
-            },
-            {
-              key: "3",
-              icon: <UploadOutlined />,
-              label: "nav 3",
-            },
-          ]}
-        />
+          defaultSelectedKeys={[window.location.pathname]}
+        >
+          <Menu.Item key="/" icon={<HomeOutlined />}>
+            <Link to="/">Home</Link>
+          </Menu.Item>
+          <Menu.Item key="/profile" icon={<UserOutlined />}>
+            <Link to="/profile">Profile</Link>
+          </Menu.Item>
+          <Menu.Item key="/appliedjobs" icon={<PlusSquareOutlined />}>
+            <Link to="/appliedjobs">Applied Jobs</Link>
+          </Menu.Item>
+
+          <Menu.Item key="/postjob" icon={<PlusOutlined />}>
+            <Link to="/postjob">Post Job</Link>
+          </Menu.Item>
+
+          <Menu.Item key="/posted" icon={<CheckOutlined />}>
+            <Link to="/posted">Posted</Link>
+          </Menu.Item>
+
+          <Menu.Item key="/logout" icon={<LogoutOutlined />}>
+            <Link to="/login">Logout</Link>
+          </Menu.Item>
+        </Menu>
       </Sider>
       <Layout className="site-layout">
         <Header
           className="site-layout-background"
           style={{
             padding: 0,
-            position: "fixed",
+            position: "sticky",
             overflow: "auto",
             top: 0,
             zIndex: 9999,

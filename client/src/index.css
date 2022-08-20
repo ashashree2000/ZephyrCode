@@ -86,10 +86,6 @@ p{
   border-radius: 4px !important;
 }
 
-.site-layout-background{
-  padding: 0 !important;
-  position: sticky !important;
-  overflow: auto !important;
-  top:0 !important;
-  z-index: 9999 !important;
+.login{
+  padding-top: 100px;
 }

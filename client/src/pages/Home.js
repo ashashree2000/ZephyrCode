@@ -9,9 +9,6 @@ import moment from "moment";
 const Home = () => {
   const { jobs } = useSelector((state) => state.jobsReducer);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllJobs());
-  }, []);
 
   return (
     <div>
@@ -39,8 +36,10 @@ const Home = () => {
 
                   <hr />
                   <div className="flex">
-                    <Button type="primary">View</Button>
-                    <p style={{ marginLeft: 20 }}>
+                    <Link to={`/jobs/${job._id}`}>
+                      <Button type="primary">View</Button>
+                    </Link>
+                    <p className="ml-2">
                       Potsed on: {moment(job.createdAt).format("MMM DD YYYY")}
                     </p>
                   </div>
