@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllJobs } from "./redux/actions/jobActions";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile";
 
 function App() {
   const { loader } = useSelector((state) => state.loaderReducer);
@@ -29,9 +30,9 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/jobs/:id" exact component={JobInfo} />
         {/* <ProtectedRoute path="/appliedjobs" exact component={AppliedJobs} />
-        <ProtectedRoute path="/postjob" exact component={PostJob} />
+        <ProtectedRoute path="/postjob" exact component={PostJob} /> */}
 
-        <ProtectedRoute path="/profile" exact component={Profile} /> */}
+        <Route path="/profile" exact component={Profile} />
 
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
