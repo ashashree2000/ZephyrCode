@@ -1,24 +1,22 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const router = require("./routes/user-routes");
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
-const cors = require("cors");
-require("dotenv").config();
-
 const app = express();
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
-app.use(cookieParser());
-app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/api", router);
+const bodyParser = require("body-parser");
 
-mongoose
-  .connect(
-    `mongodb+srv://admin:vVo24ZLJXgN6F7xw@testcluster.bmpr6.mongodb.net/?retryWrites=true&w=majority`
-  )
-  .then(() => {
-    app.listen(5000);
-    console.log("Mongo Db is conneted. Listening on port 5000");
-  })
-  .catch((err) => console.log(err));
+const db = require("./db.js");
+
+//Importing Routes
+const jobsRoute = require("./routes/jobsRoute");
+const userRoute = require("./routes/usersRoute");
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
+//Middlewares
+app.use("/api/jobs/", jobsRoute);
+app.use("/api/users/", userRoute);
+
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Server is running on port ${port}🔥`));
