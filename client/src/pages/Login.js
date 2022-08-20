@@ -1,6 +1,7 @@
 import { Col, Form, Input, Row, Button } from "antd";
 import React from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { loginUser } from "../redux/actions/userActions";
 
 const Login = () => {
@@ -31,9 +32,11 @@ const Login = () => {
               <Input />
             </Form.Item>
 
-            <Button type="primary" htmlType="submit">
+            <Button className="mb-3" type="primary" htmlType="submit">
               Login
             </Button>
+            <br />
+            <Link to="/register">Not registered? Click here to register</Link>
           </Form>
         </Col>
       </Row>

@@ -1,6 +1,7 @@
 import { Col, Form, Input, Row, Button, message } from "antd";
 import React from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { registerUser } from "../redux/actions/userActions";
 
 const Register = () => {
@@ -27,7 +28,6 @@ const Register = () => {
             >
               <Input />
             </Form.Item>
-
             <Form.Item
               label="Password"
               name="password"
@@ -35,7 +35,6 @@ const Register = () => {
             >
               <Input />
             </Form.Item>
-
             <Form.Item
               label="Confirm Password"
               name="confirmpassword"
@@ -43,10 +42,11 @@ const Register = () => {
             >
               <Input />
             </Form.Item>
-
-            <Button type="primary" htmlType="submit">
+            <Button className="mb-3" type="primary" htmlType="submit">
               Register
             </Button>
+            <br />
+            <Link to="/login">Already a user? Click here to login</Link>
           </Form>
         </Col>
       </Row>

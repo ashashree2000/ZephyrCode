@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
-import { Button, Table } from "antd";
+import { Button, Table, Typography } from "antd";
 import moment from "moment";
 import { useHistory } from "react-router-dom";
-
+const { Title } = Typography;
 const PostedJobs = () => {
   const alljobs = useSelector((state) => state.jobsReducer).jobs;
   const userid = JSON.parse(localStorage.getItem("user"))._id;
@@ -62,7 +62,7 @@ const PostedJobs = () => {
   return (
     <div>
       <DefaultLayout>
-        <h3>Posted Jobs</h3>
+        <Title level={3}>Posted Jobs</Title>
         <Table columns={columns} dataSource={dataSource}></Table>
       </DefaultLayout>
     </div>

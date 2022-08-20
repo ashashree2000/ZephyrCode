@@ -2,13 +2,27 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
-import { Button } from "antd";
+import { Button, Tag } from "antd";
 import moment from "moment";
+import { applyJob } from "../redux/actions/jobActions";
 
 function JobInfo({ match }) {
   const { jobs } = useSelector((state) => state.jobsReducer);
+
   const job = jobs.find((job) => job._id == match.params.id);
+
   const userid = JSON.parse(localStorage.getItem("user"))._id;
+  const appliedCandidates = job.appliedCandidates;
+
+  const alreadyApplied = appliedCandidates.find(
+    (candidate) => candidate.userid == userid
+  );
+
+  const dispatch = useDispatch();
+
+  function applyNow() {
+    dispatch(applyJob(job));
+  }
   return (
     <div>
       <DefaultLayout>
@@ -62,8 +76,12 @@ function JobInfo({ match }) {
               <Button>
                 <Link to={`/editjob/${job._id}`}>Edit Now</Link>
               </Button>
+            ) : alreadyApplied ? (
+              <Tag color="volcano">Already Applied</Tag>
             ) : (
-              <Button type="primary">Apply Now</Button>
+              <Button onClick={applyNow} type="primary">
+                Apply Now
+              </Button>
             )}
             <p>
               <b>Posted on: </b>

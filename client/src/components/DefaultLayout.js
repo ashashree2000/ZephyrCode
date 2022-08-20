@@ -18,6 +18,10 @@ const { Header, Sider, Content } = Layout;
 
 const DefaultLayout = (props) => {
   const [collapsed, setCollapsed] = useState(false);
+  function logout() {
+    localStorage.removeItem("user");
+    window.location.reload();
+  }
 
   return (
     <Layout>
@@ -47,7 +51,7 @@ const DefaultLayout = (props) => {
           </Menu.Item>
 
           <Menu.Item key="/logout" icon={<LogoutOutlined />}>
-            <Link to="/login">Logout</Link>
+            <Link onClick={logout}>Logout</Link>
           </Menu.Item>
         </Menu>
       </Sider>

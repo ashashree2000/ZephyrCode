@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useEffect } from "react";
 import { useState, CSSProperties } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import "antd/dist/antd.min.css";
 import Home from "./pages/Home";
 import JobInfo from "./pages/JobInfo";
@@ -14,6 +14,7 @@ import Profile from "./pages/Profile";
 import PostJob from "./pages/PostJob";
 import PostedJobs from "./pages/PostedJobs";
 import EditJob from "./pages/EditJob";
+import AppliedJobs from "./pages/AppliedJobs";
 
 function App() {
   const { loader } = useSelector((state) => state.loaderReducer);
@@ -30,13 +31,13 @@ function App() {
       )}
 
       <BrowserRouter>
-        <Route path="/" exact component={Home} />
-        <Route path="/jobs/:id" exact component={JobInfo} />
-        <Route path="/editjob/:id" exact component={EditJob} />
-        {/* <Route path="/appliedjobs" exact component={AppliedJobs} /> */}
-        <Route path="/postjob" exact component={PostJob} />
-        <Route path="/profile" exact component={Profile} />
-        <Route path="/posted" exact component={PostedJobs} />
+        <ProtectedRoute path="/" exact component={Home} />
+        <ProtectedRoute path="/jobs/:id" exact component={JobInfo} />
+        <ProtectedRoute path="/editjob/:id" exact component={EditJob} />
+        <ProtectedRoute path="/postjob" exact component={PostJob} />
+        <ProtectedRoute path="/profile" exact component={Profile} />
+        <ProtectedRoute path="/posted" exact component={PostedJobs} />
+        <Route path="/appliedjobs" exact component={AppliedJobs} />
 
         {/* Authentication routes */}
         <Route path="/login" exact component={Login} />
@@ -47,3 +48,12 @@ function App() {
 }
 
 export default App;
+
+export function ProtectedRoute(props) {
+  const user = localStorage.getItem("user");
+  if (!user) {
+    return <Redirect to="/login" />;
+  } else {
+    return <Route {...props} />;
+  }
+}
