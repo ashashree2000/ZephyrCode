@@ -41,7 +41,16 @@ const DefaultLayout = (props) => {
         />
       </Sider>
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }}>
+        <Header
+          className="site-layout-background"
+          style={{
+            padding: 0,
+            position: "fixed",
+            overflow: "auto",
+            top: 0,
+            zIndex: 9999,
+          }}
+        >
           {React.createElement(
             collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
             {

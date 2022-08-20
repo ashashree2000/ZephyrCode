@@ -33,4 +33,63 @@ code {
   background: #fff;
 }
 
+.ant-layout-sider{
+  height: 100vh !important;
+  position: sticky !important;
+  overflow: auto !important;
+  top:0 !important;
+}
+.ant-layout-header span svg{
+  height:25px !important;
+  width: 25px !important;
+  margin-left: 10px !important;
+}
 
+.logo{
+  text-align: center;
+  font-size: 22px !important;
+}
+.logo h1{
+  color: white! important;
+}
+
+.ant-layout-content{
+  margin: 0 !important;
+  padding: 10px !important;
+}
+
+.sweet-loading{
+  position: fixed !important;
+  top: 30% !important;
+  height: 100% !important;
+  width:  100% !important;
+  z-index: 9999;
+}
+
+.flex{
+  display: flex !important;
+  align-items: center;
+}
+
+p{
+  font-weight: 500 !important ;
+  margin: 2px !important;
+  padding: 2px !important;
+  font-size: 14px !important ;
+}
+
+.bs{
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.job-div{
+  border-radius: 4px !important;
+}
+
+.site-layout-background{
+  padding: 0 !important;
+  position: sticky !important;
+  overflow: auto !important;
+  top:0 !important;
+  z-index: 9999 !important;
+}
