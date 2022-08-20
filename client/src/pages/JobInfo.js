@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
 import { Button } from "antd";
@@ -8,6 +8,7 @@ import moment from "moment";
 function JobInfo({ match }) {
   const { jobs } = useSelector((state) => state.jobsReducer);
   const job = jobs.find((job) => job._id == match.params.id);
+  const userid = JSON.parse(localStorage.getItem("user"))._id;
   return (
     <div>
       <DefaultLayout>
@@ -57,7 +58,13 @@ function JobInfo({ match }) {
           <hr />
 
           <div className="flex justify-content-between">
-            <Button type="primary">Apply Now</Button>
+            {job.postedBy == userid ? (
+              <Button>
+                <Link to={`/editjob/${job._id}`}>Edit Now</Link>
+              </Button>
+            ) : (
+              <Button type="primary">Apply Now</Button>
+            )}
             <p>
               <b>Posted on: </b>
               {moment(job.createdAt).format("MMM DD YYYY")}

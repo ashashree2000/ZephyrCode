@@ -21,4 +21,16 @@ router.post("/postjob", async (req, res) => {
   }
 });
 
+router.post("/updatejob", async (req, res) => {
+  try {
+    const updatedJob = await Job.findOneAndUpdate(
+      { _id: req.body._id },
+      req.body
+    );
+    res.send("Job updated Successfully!");
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
+});
+
 module.exports = router;
