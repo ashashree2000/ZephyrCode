@@ -89,3 +89,7 @@ p{
 .login{
   padding-top: 100px;
 }
+
+.ant-message{
+  z-index: 9999 !important;
+}
