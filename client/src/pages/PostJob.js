@@ -97,10 +97,9 @@ function PostJob() {
                     label="Minimum Qualification"
                   >
                     <Select>
-                      <Option value="Degree">Graduate</Option>
-                      <Option value="Degree">Undergraduate</Option>
+                      <Option value="Undergraduate">Graduate</Option>
+                      <Option value="Undergraduate">Undergraduate</Option>
                       <Option value="Plus 2">12th</Option>
-                      <Option value="10th">10th</Option>
                     </Select>
                   </Form.Item>
                 </Col>
@@ -126,7 +125,9 @@ function PostJob() {
                 </Col>
               </Row>
 
-              <Button htmlType="submit">Next</Button>
+              <Button type="primary" htmlType="submit">
+                Next
+              </Button>
             </Form>
           </TabPane>
           <TabPane tab="Company Info" key="1">
@@ -177,7 +178,14 @@ function PostJob() {
               >
                 Previous
               </Button>
-              <Button htmlType="submit">Post Job</Button>
+              <Button
+                type="primary"
+                style={{ marginLeft: "10px" }}
+                ype="primary"
+                htmlType="submit"
+              >
+                Post Job
+              </Button>
             </Form>
           </TabPane>
         </Tabs>

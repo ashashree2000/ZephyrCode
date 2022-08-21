@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { FilterTwoTone } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { filterJobs, searchJobs } from "../redux/actions/jobActions";
-// import { searchJobs, sortJobs } from "../redux/actions/jobActions.";
 
 const { Search } = Input;
 const { Option } = Select;
