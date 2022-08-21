@@ -1,11 +1,10 @@
 import "./App.css";
 import React, { useEffect } from "react";
-// import { useState, CSSProperties } from "react";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
 import "antd/dist/antd.min.css";
 import Home from "./pages/Home";
 import JobInfo from "./pages/JobInfo";
-import HashLoader from "react-spinners/HashLoader";
+import ClipLoader from "react-spinners/ClipLoader";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllJobs } from "./redux/actions/jobActions";
 import Register from "./pages/Register";
@@ -29,7 +28,7 @@ function App() {
     <div className="App">
       {loader && (
         <div className="sweet-loading text-center">
-          <HashLoader color={"#001529"} size={150} />
+          <ClipLoader color={"#000"} />
         </div>
       )}
 
