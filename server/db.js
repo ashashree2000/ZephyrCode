@@ -3,7 +3,7 @@ dbConnect();
 async function dbConnect() {
   try {
     await mongoose.connect(
-      "mongodb+srv://admin:fwBaHVojdph5gmtA@testcluster.bmpr6.mongodb.net/zephjobs",
+      "mongodb+srv://debashish_t:may211999@cluster0.bnyzjuc.mongodb.net/?retryWrites=true&w=majority",
       { useNewUrlParser: true }
     );
     console.log("Mongo DB Connection success");

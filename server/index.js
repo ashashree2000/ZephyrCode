@@ -1,9 +1,13 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-
+const cors = require('cors')
 const db = require("./db.js");
 
+
+app.use(cors({
+    origin: '*'
+}))
 //Importing Routes
 const jobsRoute = require("./routes/jobsRoute");
 const userRoute = require("./routes/usersRoute");
